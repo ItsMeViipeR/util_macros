@@ -13,7 +13,7 @@ macro_rules! structs {
     ($($name:ident {$($arg:ident: $type:ty),*})*) => {
         $(
             pub struct $name {
-                $($arg: $type,)*
+                pub $($arg: $type,)*
             }
         )*
     };
