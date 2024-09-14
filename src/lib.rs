@@ -31,6 +31,14 @@ macro_rules! structs {
 /// ```
 #[macro_export]
 macro_rules! functions {
+    ($($name:ident($($arg:ident: $type:ty),*) { $($code:tt)* })*) => {
+        $(
+            pub fn $name($($arg: $type),*) {
+                { $($code)* }
+            }
+        )*
+    };
+
     ($($name:ident($($arg:ident: $type:ty),*) -> $rtype:ty { $($code:tt)* })*) => {
         $(
             pub fn $name($($arg: $type),*) -> $rtype {
